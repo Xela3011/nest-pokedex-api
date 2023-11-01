@@ -18,7 +18,7 @@ RUN yarn build
 FROM node:18-alpine3.15 AS runner
 
 # Set working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package.json yarn.lock ./
 
@@ -39,4 +39,4 @@ COPY --from=builder /app/dist ./dist
 
 # EXPOSE 3000
 
-CMD [ "node","dist/main" ]
+CMD [ "node","dist/src/main" ]
